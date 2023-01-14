@@ -1,6 +1,6 @@
 # DMIT2015 Winter 2023 Term Workbook Repository
 
-## your name here
+## Tyler Hum
 
 ## your Github Account id
 

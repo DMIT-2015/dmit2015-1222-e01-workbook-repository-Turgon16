@@ -1,94 +1,111 @@
 package dmit2015.model;
 
+
+/**
+ * This class models a Circle shape.
+ * @author Tyler Hum
+ * @version 2023-01-20
+ * @see http://www.jetbrains.com/help/idea/working-with-code-documentation.html
+ */
 public class Circle {
-// fields
+    /**
+     * The radius of this circle
+     */
     private double radius;
-// getter
+
+    /**
+     * Returns the radius of this circle
+     * @return the radius of this circle
+     */
+
     public double getRadius() {
         return radius;
     }
-// setter
-    //CHECKED exception example
-    public void setRadius(double radius) throws Exception {
-        // let's do exception testing
-        // Validate the new value assigned to the  Radius
-        if (radius <= 0)
+
+    // checked exception example
+    //    public void setRadius(double radius) throws Exception {
+    //
+    //        //validate
+    //        if(radius <= 0)
+    //        {
+    //            throw new Exception("Radius must be a positive non-zero number.");
+    //        }
+    //        this.radius = radius;
+    //    }
+
+    // unchecked RuntimeException
+    public void setRadius(double radius) {
+
+        //validate
+        if(radius <= 0)
         {
-            throw new Exception("Radius must be a positive non-zero number.");
+            throw new RuntimeException("Radius must be a positive non-zero number.");
         }
         this.radius = radius;
     }
 
-    // Runtime exception Example
-//    public void setRadius(double radius) throws Exception {
-//        // let's do exception testing
-//        // Validate the new value assigned to the  Radius
-//        if (radius <= 0)
-//        {
-//            throw new RuntimeException("Radius must be a positive non-zero number.");
-//        }
-//        this.radius = radius;
-//    }
-// empty constructor
     public Circle() {
         this.radius = 1;
     }
-// constructor
+
     public Circle(double radius) {
         this.radius = radius;
     }
-// Methods
-    public double Area()
+
+    public double area()
     {
         return Math.PI * radius * radius;
     }
-    public double Perimeter()
+
+    public double diameter()
+    {
+        return 2 * radius;
+    }
+
+    public double circumference()
     {
         return 2 * Math.PI * radius;
     }
-// class with main is a program, class without main is not a program
+
+    public double perimeter()
+    {
+        return 2 * Math.PI * radius;
+    }
+
     public static void main(String[] args) {
-        // create new circle object
         Circle circle1 = new Circle();
-        // the radius of circle1 should be 1,
-        // area should be 3.14159
-        // perimeter should be 6.28
-        // string formatting is a bit different than C#
-        // s formats strings, d for integers, f for floating point numbers, d for dates and times
-        // System.out.print is like Console.writeline in C#
-        System.out.println("The radius of circle1 is " + circle1.getRadius());
-        System.out.printf("The radius of circle1 is %s\n", circle1.getRadius());
-        System.out.printf("The area of circle1 is %.5f\n", circle1.Area());
-        System.out.printf("The perimeter of circle1 is %.2f", circle1.Perimeter());
 
-        // Change the radius of circle 1 to 5
-        //
-        try
-        {
-            circle1.setRadius(5);
-            // the radius of circle1 should be 5,
-            // area should be 78.53982
-            // perimeter should be 31.41593
-            System.out.printf("The radius of circle1 is %s\n", circle1.getRadius());
-            System.out.printf("The area of circle1 is %.5f\n", circle1.Area());
-            System.out.printf("The perimeter of circle1 is %.5f", circle1.Perimeter());
-        }
-        catch (Exception ex)
-        {
-            System.out.println(ex.getMessage());
-        }
+        // radius = 1
+        // area = 3.14159
+        // perimeter = 6.28
 
-        // Change the radius of circle1 to -25
-        // It should throw an exception
+        System.out.printf("the radius of the circle1 is %s\n", circle1.getRadius());
+        // System.out.println("the radius of the circle1 is" + circle1.getRadius());
+        System.out.printf("the area of the circle1 is %.5f\n", circle1.area());
+        System.out.printf("the perimeter of circle1 is %.2f\n", circle1.perimeter());
+        // System.out.printf("the perimeter of circle1 is {circle1.Perimeter()}\n");
+
+        circle1.setRadius(5);
+        // circle1.radius = 5;
+
+        // radius = 5
+        // area = 78.53982
+        // perimeter = 31.41593
+
+        System.out.printf("the radius of the circle1 is %s\n", circle1.getRadius());
+        System.out.printf("the area of the circle1 is %.5f\n", circle1.area());
+        System.out.printf("the perimeter of circle1 is %.2f\n", circle1.perimeter());
+        // System.out.printf("the perimeter of circle1 is {circle1.Perimeter()}");
+
+        // Try catch
         try
         {
             circle1.setRadius(-25);
             System.out.println("An exception should have been thrown");
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             System.out.println(ex.getMessage());
         }
-
     }
 }

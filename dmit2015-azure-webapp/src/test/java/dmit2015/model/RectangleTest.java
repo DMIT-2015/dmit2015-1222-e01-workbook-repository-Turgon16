@@ -9,7 +9,7 @@ class RectangleTest {
     @Test
     void area_SmallValue_ReturnsCorrectResult() {
         Rectangle rectangle1 = new Rectangle(3, 4);
-        assertEquals(12, rectangle1.Area(), 0);
+        assertEquals(12, rectangle1.area(), 0);
     }
 
     @Test

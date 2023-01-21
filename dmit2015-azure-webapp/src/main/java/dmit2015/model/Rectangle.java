@@ -33,19 +33,19 @@ public class Rectangle {
 
     // methods
     // calculate area
-    public double Area()
+    public double area()
     {
         return length * width;
     }
 
     // calculate perimeter
-    public double Perimeter()
+    public double perimeter()
     {
         return length * 2 + width * 2;
     }
 
     // calculate diagonal
-    public double Diagonal()
+    public double diagonal()
     {
         return Math.sqrt( (width * width) + (length * length) );
     }

@@ -1,22 +1,51 @@
 package dmit2015.model;
 
-class CircleTest {
-//
-//    class ParameterizedCircleTest {
-//        @ParameterizedTest(name = "radius = {0}, expected area = {1} ")
-//        @CsvSource({
-//                "1.0, 3.14",
-//                "25.0, 1963.50",
-//                "100.0, 31415.93",
-//                "125.0, 49087.39",
-//        })
-//        void area_DifferentRadius_ReturnsCorrectResults(double radius, double expectedArea) {
-//// Arrange
-//            Circle circle1 = new Circle();
-//// Act
-//            circle1.setRadius(radius);
-//// Assert
-//            assertEquals(expectedArea, circle1.area(), 0.005);
-//        }
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+class CircleTest {
+    @Test
+    void area_SmallValue_ReturnsCorrectResult() {
+// Arrange and Act
+        Circle circle1 = new Circle(5);
+// Assert
+        assertEquals(78.54, circle1.area(), 0.005);
+    }
+    @Test
+    void diameter_SmallValue_ReturnsCorrectResult() {
+// Arrange and Act
+        Circle circle1 = new Circle(5);
+// Assert
+        assertEquals(10, circle1.diameter());
+    }
+    @Test
+    void circumference_SmallValue_ReturnsCorrectResult() {
+// Arrange and Act
+        Circle circle1 = new Circle(5);
+// Assert
+        assertEquals(31.42, circle1.circumference(), 0.005);
+    }
+    @Test
+    void allMethods_SmallValue_ReturnsCorrectResult() {
+// Arrange and Act
+        Circle circle1 = new Circle(5);
+// Assert
+        assertAll("all methods",
+                () -> assertEquals(78.54, circle1.area(), 0.01),
+                () -> assertEquals(10, circle1.diameter()),
+                () -> assertEquals(31.42, circle1.circumference(), 0.005)
+        );
+    }
+    @Test
+    void setRadius_InvalidRadius_ThrowsRuntimeException() {
+// Arrange
+        Circle circle1 = new Circle();
+// Act
+        var exception = assertThrows(
+                RuntimeException.class,
+                () -> circle1.setRadius(-10));
+// Assert
+        assertEquals("Radius value must be greater than 0", exception.getMessage());
+    }
 }

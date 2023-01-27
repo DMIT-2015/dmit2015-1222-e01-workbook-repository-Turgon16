@@ -33,6 +33,11 @@ public class Circle {
     //        this.radius = radius;
     //    }
 
+    /**
+     * Change the radius of this circle
+     * @param radius the new radius of this circle
+     */
+
     // unchecked RuntimeException
     public void setRadius(double radius) {
 
@@ -44,14 +49,26 @@ public class Circle {
         this.radius = radius;
     }
 
+    /**
+     * Creates a circle with a specific radius
+     */
     public Circle() {
         this.radius = 1;
     }
+    /**
+    *Compute and return the area of this circle
+     * @return the area of this circle
+     */
 
     public Circle(double radius) {
         this.radius = radius;
     }
 
+    /**
+     * Compute and return the diameter of this circle
+     * @return the diameter of this circle.
+     * @return
+     */
     public double area()
     {
         return Math.PI * radius * radius;
@@ -62,6 +79,10 @@ public class Circle {
         return 2 * radius;
     }
 
+    /**
+     * Compute and return the circumference of this circle
+     * @return the circumference of this circle
+     */
     public double circumference()
     {
         return 2 * Math.PI * radius;
@@ -71,6 +92,12 @@ public class Circle {
     {
         return 2 * Math.PI * radius;
     }
+
+    /**
+     * Console application to demonstrate the usage of the Circle object.
+     * @param args
+     *
+     */
 
     public static void main(String[] args) {
         Circle circle1 = new Circle();

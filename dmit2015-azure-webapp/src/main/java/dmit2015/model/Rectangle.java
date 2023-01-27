@@ -1,8 +1,19 @@
 package dmit2015.model;
 
+/**
+ * This class models a rectangle shape
+ * @author Tyler Hum
+ * @version 2023.01.20
+ */
 public class Rectangle {
     // fields
+    /**
+     * The width of this Rectangle
+     */
     private double width;
+    /**
+     * The length of this Rectangle.
+     */
     private double length;
 
     // getter
